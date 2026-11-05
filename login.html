@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aequalis – Masuk & Daftar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="auth-page">
+    <main class="auth-card">
+      <!-- LOGIN -->
+      <section class="view active" id="view-login" aria-label="Halaman Login">
+        <div class="auth-panel">
+          <h2>Hello, User!</h2>
+          <p>Belum punya akun? daftar sekarang secara gratis!</p>
+          <button class="btn-ghost" data-go="daftar" type="button">
+            SIGN UP
+          </button>
+          <svg class="illus" viewBox="0 0 400 190" aria-hidden="true">
+            <ellipse cx="200" cy="170" rx="190" ry="22" fill="#2f55b5" opacity=".55" />
+            <rect x="40" y="130" width="70" height="12" rx="2" fill="#2a4db0" />
+            <rect x="44" y="118" width="64" height="12" rx="2" fill="#4f74d6" />
+            <rect x="38" y="106" width="68" height="12" rx="2" fill="#2a4db0" />
+            <rect x="62" y="84" width="26" height="22" rx="3" fill="#e7edfb" />
+            <path d="M75 84C60 70 56 56 62 44c10 8 14 24 13 40z" fill="#37c08a" />
+            <path d="M75 84c4-16 14-28 28-30-2 16-12 28-28 30z" fill="#2ba374" />
+            <path d="M75 84c-2-12 0-26 8-36 6 12 4 26-8 36z" fill="#58d6a4" />
+            <path d="M140 150l12-62a6 6 0 0 1 6-5h122a6 6 0 0 1 6 7l-10 60z" fill="#dbe5fb" />
+            <path d="M150 140l10-50h108l-8 50z" fill="#8aa6ea" />
+            <circle cx="214" cy="115" r="12" fill="#3e59b0" />
+            <path d="M120 150h180l-6 10H126z" fill="#b8c7ee" />
+            <path d="M330 90l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#9fd0ff" />
+            <path d="M110 70l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#9fd0ff" />
+          </svg>
+        </div>
+
+        <div class="form-side">
+          <div class="logo">
+            <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="16" cy="16" r="15" fill="#4a67c0" />
+              <path d="M9 21c4-1 6-4 7-9 1 5 3 8 7 9-5 0-7 2-7 4 0-2-2-4-7-4z" fill="#fff" />
+            </svg>
+            aequalis
+          </div>
+          <h1>Sign In</h1>
+          <p class="sub">Login dengan akun yang sudah terdaftar</p>
+
+          <form id="form-login" class="auth-form" novalidate>
+            <label for="l-email">Email</label>
+            <div class="field" id="f-l-email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <input id="l-email" type="email" placeholder="Masukkan email" autocomplete="email" />
+            </div>
+            <div class="err" id="e-l-email"></div>
+
+            <label for="l-pass">Password</label>
+            <div class="field" id="f-l-pass">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <rect x="5" y="11" width="14" height="9" rx="2" />
+                <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+              </svg>
+              <input id="l-pass" type="password" placeholder="Masukkan password" autocomplete="current-password" />
+              <button type="button" class="eye" data-eye="l-pass" aria-label="Lihat password"></button>
+            </div>
+            <div class="err" id="e-l-pass"></div>
+
+            <button class="btn" type="submit">SIGN IN</button>
+          </form>
+
+          <p class="foot">
+            © 2026 Aequalis. Hak cipta dilindungi.<br />Mewujudkan kesempatan kerja yang setara dan inklusif bagi semua.
+          </p>
+        </div>
+      </section>
+
+      <!-- DAFTAR -->
+      <section class="view" id="view-daftar" aria-label="Halaman Daftar">
+        <div class="form-side">
+          <h1>Sign Up</h1>
+          <p class="sub">Daftar gratis dan temukan lowongan yang ramah untukmu</p>
+
+          <form id="form-daftar" class="auth-form" novalidate>
+            <label for="d-nama">Nama Lengkap</label>
+            <div class="field" id="f-d-nama">
+              <input id="d-nama" type="text" placeholder="Nama sesuai identitas" autocomplete="name" />
+            </div>
+            <div class="err" id="e-d-nama"></div>
+
+            <label for="d-email">Email</label>
+            <div class="field" id="f-d-email">
+              <input id="d-email" type="email" placeholder="nama@gmail.com" autocomplete="email" />
+            </div>
+            <div class="err" id="e-d-email"></div>
+
+            <label for="d-pass">Password</label>
+            <div class="field" id="f-d-pass">
+              <input id="d-pass" type="password" placeholder="Buat password anda" autocomplete="new-password" />
+              <button type="button" class="eye" data-eye="d-pass" aria-label="Lihat password"></button>
+            </div>
+            <div class="hint">Minimal 8 karakter dengan kombinasi huruf, angka, dan simbol</div>
+            <div class="err" id="e-d-pass"></div>
+
+            <label for="d-pass2">Konfirmasi Password</label>
+            <div class="field" id="f-d-pass2">
+              <input id="d-pass2" type="password" placeholder="Ulangi password" autocomplete="new-password" />
+              <button type="button" class="eye" data-eye="d-pass2" aria-label="Lihat password"></button>
+            </div>
+            <div class="err" id="e-d-pass2"></div>
+
+            <div class="row-actions">
+              <button class="btn" type="submit">SIGN UP</button>
+              <button class="link" type="button" data-go="login">Kembali ke halaman login</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="auth-panel">
+          <svg viewBox="0 0 300 240" width="min(100%,300px)" aria-hidden="true" style="position: relative; z-index: 2">
+            <rect x="40" y="50" width="200" height="130" rx="14" fill="#e9eefb" transform="rotate(4 140 115)" />
+            <rect x="30" y="38" width="200" height="130" rx="14" fill="#fff" />
+            <rect x="46" y="58" width="30" height="30" rx="8" fill="#2a4db0" />
+            <rect x="84" y="62" width="90" height="7" rx="3" fill="#d6dcec" />
+            <rect x="84" y="76" width="70" height="7" rx="3" fill="#d6dcec" />
+            <path d="M200 52h12v26l-6-5-6 5z" fill="#2ba374" />
+            <rect x="46" y="100" width="42" height="14" rx="7" fill="#c9f2dd" />
+            <rect x="94" y="100" width="48" height="14" rx="7" fill="#dbe5fb" />
+            <circle cx="52" cy="134" r="5" fill="none" stroke="#8a93a8" stroke-width="1.5" />
+            <rect x="64" y="131" width="90" height="6" rx="3" fill="#e1e6f2" />
+            <circle cx="52" cy="152" r="5" fill="none" stroke="#8a93a8" stroke-width="1.5" />
+            <rect x="64" y="149" width="60" height="6" rx="3" fill="#e1e6f2" />
+            <circle cx="30" cy="112" r="16" fill="#2ba374" />
+            <circle cx="30" cy="112" r="7" fill="none" stroke="#fff" stroke-width="2" />
+            <circle cx="220" cy="200" r="30" fill="#fff" />
+            <circle cx="220" cy="190" r="12" fill="#f3c9a6" />
+            <path d="M208 186c2-12 22-12 24 0-6-4-18-4-24 0z" fill="#16255a" />
+            <path d="M194 228c2-18 14-24 26-24s24 6 26 24z" fill="#4a67c0" />
+            <path d="M262 30l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#9fd0ff" />
+          </svg>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
