@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aequalis – Lowongan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="lowongan.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="wrap">
+        <span>Aksesibilitas</span>
+        <div class="size" role="group" aria-label="Ukuran teks">
+          <span>Ukuran Teks</span>
+          <button type="button" data-size="-1" aria-label="Perkecil teks">
+            −
+          </button>
+          <button type="button" data-size="1" aria-label="Perbesar teks">
+            +
+          </button>
+        </div>
+        <button type="button" id="t-contrast" aria-pressed="false">
+          Kontras Tinggi
+        </button>
+        <button type="button" id="t-dys" aria-pressed="false">
+          Font disleksia
+        </button>
+      </div>
+    </div>
+
+    <header class="nav">
+      <div class="wrap">
+        <a class="logo" href="beranda.html">
+          <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="15" fill="#4a67c0" />
+            <path
+              d="M9 21c4-1 6-4 7-9 1 5 3 8 7 9-5 0-7 2-7 4 0-2-2-4-7-4z"
+              fill="#fff"
+            />
+          </svg>
+          aequalis
+        </a>
+        <nav class="menu" aria-label="Menu utama">
+          <a href="lowongan.html" class="on" aria-current="page"
+            >Cari Lowongan</a
+          >
+          <a href="#">Perusahaan</a>
+          <a href="#">Lamaran Saya</a>
+        </nav>
+        <div class="user">
+          <button
+            type="button"
+            id="user-btn"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="avatar" id="avatar">U</span>
+            <span id="user-label">Halo, User</span> ▾
+          </button>
+          <div class="dropdown" id="dropdown">
+            <div class="who">
+              <b id="who-name">User</b><small>Pelamar</small>
+            </div>
+            <a href="#">Profil Saya</a>
+            <button type="button" class="out" id="logout">Sign Out</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="head">
+        <span class="badge">★ PILIHAN TERBAIK</span>
+        <h1>Lowongan <em>untukmu.</em></h1>
+        <p class="lead">
+          Perusahaan terverifikasi yang berkomitmen pada lingkungan kerja
+          inklusif, dicocokkan dengan profil dan kebutuhan akomodasimu.
+        </p>
+        <form class="search" id="search" role="search">
+          <div class="box">
+            <input
+              id="q"
+              type="text"
+              placeholder="Posisi atau keahlian"
+              aria-label="Posisi atau keahlian"
+            />
+          </div>
+          <div class="box">
+            <input
+              id="loc"
+              type="text"
+              placeholder="Kota atau remote"
+              aria-label="Kota atau remote"
+            />
+          </div>
+          <button class="cta" type="submit">Cari lowongan →</button>
+        </form>
+        <div class="popular">
+          Pencarian populer: <button type="button">Remote</button
+          ><button type="button">Administrasi</button>
+          <button type="button">Desain Grafis</button
+          ><button type="button">Customer Service</button>
+        </div>
+      </section>
+
+      <div class="layout">
+        <form class="filter" id="filter" aria-label="Filter lowongan">
+          <div class="top">
+            <h2>Filter</h2>
+            <button type="button" class="reset" id="reset">Reset</button>
+          </div>
+          <fieldset data-group="dis">
+            <legend>Ragam Disabilitas</legend>
+          </fieldset>
+          <fieldset data-group="acc"><legend>Akomodasi</legend></fieldset>
+          <fieldset data-group="mode"><legend>Lokasi Kerja</legend></fieldset>
+          <fieldset>
+            <legend>Gaji (juta rupiah)</legend>
+            <div class="range">
+              <input
+                id="min"
+                type="number"
+                min="0"
+                step="0.5"
+                placeholder="Min"
+                aria-label="Gaji minimum"
+              />
+              <input
+                id="max"
+                type="number"
+                min="0"
+                step="0.5"
+                placeholder="Maks"
+                aria-label="Gaji maksimum"
+              />
+            </div>
+            <p class="hint">Rentang per bulan, mis. 4 – 10</p>
+          </fieldset>
+          <button class="apply" type="submit">Terapkan</button>
+        </form>
+
+        <section>
+          <p class="count" id="count" aria-live="polite"></p>
+          <div class="list" id="list"></div>
+          <nav class="pager" id="pager" aria-label="Halaman"></nav>
+        </section>
+      </div>
+    </main>
+
+    <script src="lowongan.js"></script> 
+  </body>
+</html>
