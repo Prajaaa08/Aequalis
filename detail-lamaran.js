@@ -69,6 +69,7 @@
   });
   applySize();
 })();
+
 /* Data contoh perusahaan. Ganti dengan fetch ke API kamu. */
 window.COMPANIES = [
   {
@@ -502,59 +503,22 @@ const rp = (n) => String(n).replace(".", ",");
     </div>
     <a class="cta back" href="lowongan-perusahaan.html?id=${encodeURIComponent(c.id)}">← Kembali</a>`;
 
-  /* ---------- Ajukan lamaran ---------- */
-  const btn = $("apply-btn"),
-    dlg = $("dlg");
+  /* ---------- Ajukan lamaran: pindah ke halaman form ---------- */
+  const btn = $("apply-btn");
   function syncBtn() {
     const done = isApplied();
     btn.disabled = done;
     btn.textContent = done ? "✓ Sudah dilamar" : "Ajukan Lamaran";
   }
   syncBtn();
-  function toast(m) {
-    const t = $("toast");
-    t.textContent = m;
-    t.classList.add("show");
-    setTimeout(() => t.classList.remove("show"), 3000);
-  }
-
   btn.addEventListener("click", () => {
-    $("dlg-sub").textContent = job.title + " · " + c.short;
-    $("a-nama").value = localStorage.getItem("aequalis_user") || "";
-    $("e-nama").textContent = $("e-email").textContent = "";
-    dlg.showModal();
-    $("a-nama").focus();
-  });
-  $("a-cancel").addEventListener("click", () => dlg.close());
-  dlg.addEventListener("click", (e) => {
-    if (e.target === dlg) dlg.close();
+    location.href = "ajukan-lamaran.html?job=" + encodeURIComponent(job.id);
   });
 
-  $("apply-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const nama = $("a-nama").value.trim(),
-      email = $("a-email").value.trim();
-    const okN = !!nama,
-      okE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    $("e-nama").textContent = okN ? "" : "Nama lengkap wajib diisi.";
-    $("e-email").textContent = okE ? "" : "Format email belum benar.";
-    if (!okN || !okE) return;
-    const payload = {
-      job: job.id,
-      nama,
-      email,
-      cv: $("a-cv").files[0]?.name || null,
-      akomodasi: $("a-akom").value.trim(),
-      date: new Date().toISOString(),
-    };
-    // TODO: kirim ke backend, mis. fetch('/api/lamaran', { method:'POST', body: JSON.stringify(payload) })
-    try {
-      const list = applied();
-      list.push(payload);
-      localStorage.setItem("aequalis_applications", JSON.stringify(list));
-    } catch {}
-    dlg.close();
-    syncBtn();
-    toast("Lamaran terkirim. Semoga berhasil!");
-  });
+  if (new URLSearchParams(location.search).get("sent") === "1") {
+    const t = $("toast");
+    t.textContent = "Lamaran terkirim. Semoga berhasil!";
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 3500);
+  }
 })();

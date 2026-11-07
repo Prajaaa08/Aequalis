@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aequalis – Detail Wawancara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Gaya bersama: header, aksesibilitas, tombol. Dipakai perusahaan.html & profil-perusahaan.html */
+:root{--navy:#16255a;--blue:#2f55c8;--blue-2:#3e59b0;--sky:#eef3ff;--ink:#1b2340;--muted:#5d6784;--line:#d5dcef;--bg:#f4f7ff;--card:#fff;--ok:#1a8f55;--font:'Plus Jakarta Sans',system-ui,sans-serif}
+html{font-size:16px}
+html.t-1{font-size:18px}html.t-2{font-size:20px}html.t-3{font-size:22px}html.t--1{font-size:14px}
+html.contrast{--navy:#000;--blue:#0b2a9c;--blue-2:#0b2a9c;--sky:#fff;--ink:#000;--muted:#000;--line:#000;--bg:#fff;--card:#fff}
+html.contrast .box,html.contrast .tag,html.contrast .card{border:2px solid #000}
+html.dys{--font:'Lexend',system-ui,sans-serif}
+html.dys body{letter-spacing:.04em;word-spacing:.12em;line-height:1.75}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.5}
+a{color:inherit;text-decoration:none}
+button,input{font-family:inherit}
+:focus-visible{outline:3px solid #f5a623;outline-offset:2px}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+
+.topbar{background:var(--navy);color:#fff;font-size:.72rem}
+.topbar .wrap{display:flex;justify-content:flex-end;align-items:center;gap:20px;min-height:30px;flex-wrap:wrap}
+.topbar button{background:none;border:0;color:inherit;cursor:pointer;font-size:inherit}
+.topbar .size{display:flex;align-items:center;gap:4px}
+.topbar .size button{border:1px solid rgba(255,255,255,.5);border-radius:4px;width:22px;height:20px}
+.topbar [aria-pressed="true"]{text-decoration:underline;font-weight:700}
+.nav{background:var(--card);border-bottom:1px solid var(--line);position:relative;z-index:20}
+.nav .wrap{display:flex;align-items:center;gap:32px;min-height:64px}
+.logo{display:flex;align-items:center;gap:6px;font-weight:800;font-size:1.4rem;color:var(--blue)}
+.menu{display:flex;gap:28px;margin-left:24px;font-weight:600;font-size:.85rem}
+.menu a{padding:6px 0;border-bottom:2px solid transparent}
+.menu a:hover,.menu a.on{border-color:var(--blue);color:var(--blue)}
+.user{margin-left:auto;position:relative}
+.user>button{display:flex;align-items:center;gap:8px;background:var(--sky);border:1px solid var(--line);border-radius:10px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:.8rem;color:var(--ink)}
+.avatar{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:.7rem}
+.dropdown{position:absolute;right:0;top:calc(100% + 8px);min-width:190px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(22,37,90,.18);padding:6px;display:none}
+.dropdown.open{display:block}
+.dropdown .who{padding:8px 10px;border-bottom:1px solid var(--line);margin-bottom:4px;font-size:.8rem}
+.dropdown .who small{display:block;color:var(--muted);font-size:.7rem}
+.dropdown a,.dropdown button{display:block;width:100%;text-align:left;background:none;border:0;padding:9px 10px;border-radius:8px;font-size:.8rem;cursor:pointer;color:var(--ink)}
+.dropdown a:hover,.dropdown button:hover{background:var(--sky)}
+.dropdown .out{color:#c0262d}
+
+.badge{display:inline-flex;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.65rem;font-weight:700;color:var(--blue-2);margin-bottom:12px;letter-spacing:.03em}
+h1{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:800;color:var(--navy);line-height:1.15}
+h1 em{font-style:normal;color:var(--blue)}
+.cta{background:linear-gradient(180deg,#3558c9,#2447b3);color:#fff;border:0;border-radius:8px;padding:11px 18px;font-weight:700;font-size:.8rem;cursor:pointer;white-space:nowrap;display:inline-block}
+.cta:hover{filter:brightness(1.1)}
+.tag{background:var(--sky);border:1px solid var(--line);color:var(--blue-2);border-radius:6px;padding:2px 8px;font-size:.65rem;font-weight:600}
+.lg{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;font-weight:800;font-size:.9rem;flex:none;color:var(--navy)}
+.v{color:var(--ok)}
+@media(max-width:860px){.menu{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+<style>
+main{padding:22px 0 60px}
+.chip{display:inline-flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:2px 10px;font-size:.66rem;font-weight:700;color:var(--blue-2);margin-bottom:8px}
+h1{font-size:clamp(1.8rem,4vw,2.5rem)}
+.lead{font-size:.8rem;color:var(--muted);margin:4px 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px rgba(22,37,90,.08)}
+.layout{display:grid;grid-template-columns:1.9fr 1fr;gap:22px;align-items:start;max-width:960px}
+.main{padding:20px}
+.top{display:flex;gap:12px;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.top .ic{width:38px;height:38px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;flex:none}
+.top .t{flex:1;min-width:0}
+.top h2{font-size:1rem;color:var(--navy)}
+.top p{font-size:.68rem;color:var(--muted)}
+.pill{font-size:.62rem;font-weight:800;padding:2px 9px;border-radius:999px;background:#ffe9bf;color:#8a5a00;white-space:nowrap}
+.pill.live{background:#d8f3e4;color:var(--ok)}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.info div{display:flex;gap:10px;align-items:center;background:var(--sky);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.info .i{color:var(--blue);font-size:.9rem;flex:none}
+.info small{display:block;font-size:.6rem;color:var(--muted)}
+.info b{font-size:.76rem}
+.link{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin-top:10px;font-size:.74rem;background:#fff}
+.link span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.link button{background:none;border:0;color:var(--blue);font-weight:700;font-size:.68rem;cursor:pointer;white-space:nowrap}
+.main h3{font-size:.8rem;color:var(--navy);margin:18px 0 8px}
+.acc{list-style:none;display:grid;gap:8px}
+.acc li{display:flex;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:#fff}
+.acc .i{width:24px;height:24px;border-radius:50%;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-size:.7rem;flex:none}
+.acc b{display:block;font-size:.76rem;color:var(--blue-2)}.acc span{font-size:.68rem;color:var(--muted)}
+.chk-h{display:flex;justify-content:space-between;align-items:center;margin:18px 0 8px}
+.chk-h h3{margin:0}
+.chk-h small{font-size:.66rem;color:var(--muted)}
+.chk{list-style:none;display:grid;gap:7px}
+.chk label{display:flex;gap:9px;align-items:center;font-size:.74rem;cursor:pointer}
+.chk input{appearance:none;width:16px;height:16px;border:1.5px solid #9aa6c6;border-radius:4px;background:#fff;display:grid;place-items:center;cursor:pointer;flex:none}
+.chk input:checked{background:var(--blue);border-color:var(--blue)}
+.chk input:checked::after{content:"";width:8px;height:4px;border:2px solid #fff;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.chk input:checked+span{color:var(--muted);text-decoration:line-through}
+.side{padding:16px;position:sticky;top:12px}
+.side .pill{background:#ffe9bf;font-size:.6rem}
+.dt{display:flex;gap:10px;align-items:center;background:var(--sky);border:1px solid var(--line);border-radius:10px;padding:10px;margin:10px 0}
+.dt .d{width:40px;height:44px;border-radius:9px;background:var(--blue);color:#fff;text-align:center;line-height:1.1;padding-top:7px;flex:none}
+.dt .d b{display:block;font-size:1.1rem}.dt .d small{font-size:.55rem;font-weight:700}
+.dt b{font-size:.78rem}.dt span{display:block;font-size:.66rem;color:var(--muted)}
+.count{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.count div{border:1px solid var(--line);border-radius:10px;padding:6px 0;background:#fff}
+.count b{display:block;font-size:1.15rem;color:var(--navy);line-height:1.2}
+.count small{font-size:.6rem;color:var(--muted)}
+.cta{background:linear-gradient(180deg,#3558c9,#2447b3);color:#fff;border:0;border-radius:8px;padding:10px 16px;font-weight:700;font-size:.78rem;cursor:pointer;display:block;text-align:center;margin-top:12px}
+.cta:hover{filter:brightness(1.1)}
+.hint{font-size:.62rem;color:var(--muted);text-align:center;margin-top:6px}
+.ghost{display:block;margin-top:12px;text-align:center;background:var(--sky);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.68rem;font-weight:700;color:var(--blue-2)}
+.empty{padding:40px;text-align:center;color:var(--muted);font-size:.85rem}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);background:var(--navy);color:#fff;font-size:.85rem;font-weight:600;padding:12px 20px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:50}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:860px){.layout{grid-template-columns:1fr}.side{position:static;order:-1}.info{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <span>Aksesibilitas</span>
+  <div class="size" role="group" aria-label="Ukuran teks"><span>Ukuran Teks</span>
+    <button type="button" data-size="-1" aria-label="Perkecil teks">−</button>
+    <button type="button" data-size="1" aria-label="Perbesar teks">+</button></div>
+  <button type="button" id="t-contrast" aria-pressed="false">Kontras Tinggi</button>
+  <button type="button" id="t-dys" aria-pressed="false">Font disleksia</button>
+</div></div>
+
+<header class="nav"><div class="wrap">
+  <a class="logo" href="beranda.html">
+    <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#4a67c0"/><path d="M9 21c4-1 6-4 7-9 1 5 3 8 7 9-5 0-7 2-7 4 0-2-2-4-7-4z" fill="#fff"/></svg>aequalis</a>
+  <nav class="menu" aria-label="Menu utama">
+    <a href="lowongan.html">Cari Lowongan</a>
+    <a href="perusahaan.html">Perusahaan</a>
+    <a href="lamaran-saya.html" class="on" aria-current="page">Lamaran Saya</a>
+  </nav>
+  <div class="user">
+    <button type="button" id="user-btn" aria-haspopup="true" aria-expanded="false"><span class="avatar" id="avatar">U</span><span id="user-label">Halo, User</span> ▾</button>
+    <div class="dropdown" id="dropdown"><div class="who"><b id="who-name">User</b><small>Pelamar</small></div>
+      <a href="#">Profil Saya</a><button type="button" class="out" id="logout">Sign Out</button></div>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <a class="chip" id="back" href="lamaran-saya.html">‹ Kembali</a>
+  <h1>Detail <em>wawancara</em></h1>
+  <p class="lead">Semua yang perlu kamu siapkan sebelum hari H.</p>
+  <div id="view"></div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* Perilaku header bersama: nama user, dropdown, Sign Out, pengaturan aksesibilitas */
+(() => {
+  const $ = id => document.getElementById(id);
+  const root = document.documentElement;
+  const store = {
+    get(k){ try { return localStorage.getItem(k); } catch { return null; } },
+    set(k,v){ try { localStorage.setItem(k,v); } catch {} },
+    del(k){ try { localStorage.removeItem(k); } catch {} }
+  };
+  const name = store.get('aequalis_user') || 'User';
+  $('user-label').textContent = 'Halo, ' + name;
+  $('who-name').textContent = name;
+  $('avatar').textContent = name.charAt(0).toUpperCase();
+  const btn = $('user-btn'), dd = $('dropdown');
+  btn.addEventListener('click', e => { e.stopPropagation(); btn.setAttribute('aria-expanded', dd.classList.toggle('open')); });
+  document.addEventListener('click', () => { dd.classList.remove('open'); btn.setAttribute('aria-expanded', false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') dd.classList.remove('open'); });
+  $('logout').addEventListener('click', () => { store.del('aequalis_user'); location.href = 'aequalis-auth.html'; });
+
+  let size = parseInt(store.get('aequalis_size') || '0', 10);
+  const applySize = () => {
+    ['t--1','t-1','t-2','t-3'].forEach(c => root.classList.remove(c));
+    if (size) root.classList.add('t-' + size);
+    store.set('aequalis_size', size);
+  };
+  document.querySelectorAll('[data-size]').forEach(b => b.addEventListener('click', () => {
+    size = Math.max(-1, Math.min(3, size + parseInt(b.dataset.size, 10)));
+    applySize();
+  }));
+  [['contrast','aequalis_contrast','t-contrast'], ['dys','aequalis_dys','t-dys']].forEach(([cls,key,id]) => {
+    const apply = on => { root.classList.toggle(cls, on); $(id).setAttribute('aria-pressed', on); store.set(key, on ? '1':'0'); };
+    $(id).addEventListener('click', () => apply(!root.classList.contains(cls)));
+    apply(store.get(key) === '1');
+  });
+  applySize();
+})();
+</script>
+<script>
+/* Data contoh perusahaan. Ganti dengan fetch ke API kamu. */
+window.COMPANIES = [
+  { id:'nusantara-digital', name:'PT Nusantara Digital', short:'Nusantara Digital', ini:'N', c:'#dbe6ff', industry:'Teknologi', city:'Jakarta Selatan', mode:'Hybrid', jobs:4, level:'Unggul', salMin:5, salMax:14,
+    desc:'Layanan perangkat lunak dan dukungan teknis untuk bisnis keuangan.', dis:['Fisik','Netra','Tuli/Wicara','Psikososial'],
+    acc:[['Akses kursi roda','Lift dan jalur landai di kantor pusat.'],['Jam kerja fleksibel','Atur jam kerja sesuai kebutuhan.'],['Pembaca layar','Perangkat lunak pembaca layar disediakan.'],['Juru bahasa isyarat','Tersedia saat wawancara dan rapat.'],['Kerja hybrid','Kombinasi kantor dan rumah.'],['Ruang istirahat','Ruang tenang untuk jeda sensorik.']],
+    checks:[['Kebijakan rekrutmen inklusif tersedia',1],['Lift atau jalur landai di kantor pusat',1],['Perangkat bantu kerja disediakan',1],['Staf telah mengikuti pelatihan inklusi',1]] },
+  { id:'visiona-finansial', name:'Visiona Finansial', short:'Visiona Finansial', ini:'V', c:'#f6d4f2', industry:'Keuangan', city:'Bandung', mode:'Remote', jobs:3, level:'Unggul', salMin:6, salMax:10,
+    desc:'Analitik data dan layanan keuangan digital untuk UMKM.', dis:['Tuli/Wicara','Fisik'],
+    acc:[['Kerja remote','Bekerja penuh dari rumah.'],['Jam kerja fleksibel','Jam kerja disesuaikan.'],['Juru bahasa isyarat','Tersedia untuk rapat daring.'],['Akses kursi roda','Kantor Bandung ramah kursi roda.']],
+    checks:[['Kebijakan rekrutmen inklusif tersedia',1],['Akses fisik kantor sudah sesuai standar',1],['Perangkat bantu kerja disediakan',1],['Staf telah mengikuti pelatihan inklusi',0]] },
+  { id:'kelor-negeri', name:'Kelor Negeri', short:'Kelor Negeri', ini:'K', c:'#fde7a8', industry:'Layanan Pelanggan', city:'Yogyakarta', mode:'On-site', jobs:2, level:'Baik', salMin:4, salMax:6,
+    desc:'Pusat layanan pelanggan untuk perusahaan e-commerce.', dis:['Fisik'],
+    acc:[['Akses kursi roda','Area kerja satu lantai.'],['Ramah disabilitas fisik','Toilet dan meja kerja disesuaikan.'],['Kerja hybrid','Dua hari per minggu dari rumah.']],
+    checks:[['Kebijakan rekrutmen inklusif tersedia',1],['Akses fisik kantor sudah sesuai standar',1],['Perangkat bantu kerja disediakan',0],['Staf telah mengikuti pelatihan inklusi',0]] },
+  { id:'pelita-kreatif', name:'Pelita Kreatif', short:'Pelita Kreatif', ini:'P', c:'#d5f3e4', industry:'Kreatif', city:'Surabaya', mode:'Remote', jobs:3, level:'Baik', salMin:4.5, salMax:7,
+    desc:'Studio desain dan produksi konten visual.', dis:['Tuli/Wicara','Intelektual'],
+    acc:[['Juru bahasa isyarat','Tersedia untuk rapat tim.'],['Jam kerja fleksibel','Tanpa jam kerja kaku.'],['Kerja remote','Bekerja dari mana saja.']],
+    checks:[['Kebijakan rekrutmen inklusif tersedia',1],['Instruksi kerja dalam bahasa sederhana',1],['Perangkat bantu kerja disediakan',1],['Staf telah mengikuti pelatihan inklusi',0]] },
+  { id:'sentra-logistik', name:'Sentra Logistik', short:'Sentra Logistik', ini:'S', c:'#ffe0d6', industry:'Logistik', city:'Semarang', mode:'On-site', jobs:2, level:'Berkembang', salMin:4, salMax:5.5,
+    desc:'Pergudangan dan distribusi barang skala nasional.', dis:['Fisik','Psikososial'],
+    acc:[['Akses kursi roda','Gudang utama ramah kursi roda.'],['Jam kerja fleksibel','Shift dapat dipilih.']],
+    checks:[['Kebijakan rekrutmen inklusif tersedia',1],['Akses fisik kantor sudah sesuai standar',0],['Perangkat bantu kerja disediakan',0],['Staf telah mengikuti pelatihan inklusi',0]] },
+  { id:'teknologi-wicara', name:'Teknologi Wicara', short:'Teknologi Wicara', ini:'T', c:'#e3dcff', industry:'Teknologi', city:'Jakarta Barat', mode:'Hybrid', jobs:5, level:'Unggul', salMin:7, salMax:12,
+    desc:'Produk aksesibilitas berbasis suara dan teks.', dis:['Netra','Fisik'],
+    acc:[['Pembaca layar','Semua alat kerja kompatibel.'],['Akses kursi roda','Kantor bersertifikat aksesibel.'],['Kerja hybrid','Tiga hari kantor, dua hari rumah.'],['Perangkat braille','Papan ketik dan layar braille.']],
+    checks:[['Kebijakan rekrutmen inklusif tersedia',1],['Akses fisik kantor sudah sesuai standar',1],['Perangkat bantu kerja disediakan',1],['Staf telah mengikuti pelatihan inklusi',1]] },
+  { id:'aksara-media', name:'Aksara Media', short:'Aksara Media', ini:'A', c:'#dbe6ff', industry:'Kreatif', city:'Malang', mode:'Remote', jobs:2, level:'Baik', salMin:4, salMax:7,
+    desc:'Penerbit konten digital dan media edukasi.', dis:['Tuli/Wicara','Fisik','Psikososial'],
+    acc:[['Jam kerja fleksibel','Fokus pada hasil, bukan jam.'],['Kerja remote','Tim tersebar di seluruh Indonesia.']],
+    checks:[['Kebijakan rekrutmen inklusif tersedia',1],['Instruksi kerja dalam bahasa sederhana',1],['Perangkat bantu kerja disediakan',0],['Staf telah mengikuti pelatihan inklusi',1]] },
+  { id:'bumi-retail', name:'Bumi Retail', short:'Bumi Retail', ini:'B', c:'#fde7a8', industry:'Retail', city:'Medan', mode:'On-site', jobs:1, level:'Berkembang', salMin:4, salMax:5,
+    desc:'Jaringan toko swalayan dan kebutuhan harian.', dis:['Fisik','Intelektual'],
+    acc:[['Akses kursi roda','Pintu masuk dan jalur kasir lebar.'],['Ramah disabilitas fisik','Meja kerja dapat diatur tinggi.']],
+    checks:[['Kebijakan rekrutmen inklusif tersedia',1],['Akses fisik kantor sudah sesuai standar',1],['Perangkat bantu kerja disediakan',0],['Staf telah mengikuti pelatihan inklusi',0]] },
+  { id:'cakra-konsultan', name:'Cakra Konsultan', short:'Cakra Konsultan', ini:'C', c:'#f6d4f2', industry:'Layanan Pelanggan', city:'Denpasar', mode:'Remote', jobs:3, level:'Baik', salMin:4.5, salMax:6.5,
+    desc:'Konsultan operasional dan layanan pelanggan berbasis chat.', dis:['Fisik','Netra','Psikososial'],
+    acc:[['Pembaca layar','Tersedia lisensi untuk karyawan.'],['Jam kerja fleksibel','Jam kerja disesuaikan.'],['Kerja remote','Penuh dari rumah.']],
+    checks:[['Kebijakan rekrutmen inklusif tersedia',1],['Akses fisik kantor sudah sesuai standar',0],['Perangkat bantu kerja disediakan',1],['Staf telah mengikuti pelatihan inklusi',1]] }
+];
+
+
+/* Data lowongan contoh per perusahaan, dibangun dari COMPANIES. Ganti dengan fetch ke API kamu. */
+const TITLES={'nusantara-digital':['Customer Support Specialist','Frontend Developer Junior','QA Tester','Content Moderator'],'visiona-finansial':['Junior Data Analyst','Staf Keuangan','Customer Success'],'kelor-negeri':['Customer Service Chat','Staf Administrasi'],'pelita-kreatif':['Desain Grafis Junior','Ilustrator Digital','Video Editor'],'sentra-logistik':['Administrasi Gudang','Staf Data Entry'],'teknologi-wicara':['QA Tester','Technical Writer','Support Engineer','UI Designer','Data Labeler'],'aksara-media':['Content Writer','Editor Naskah'],'bumi-retail':['Staf Administrasi'],'cakra-konsultan':['Customer Service Chat','Staf Operasional','Analis Laporan']};
+const MODES=['Hybrid','Remote','On-site'];
+const BULAN=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+window.JOBS=COMPANIES.flatMap(c=>{
+  const list=TITLES[c.id]||[], span=c.salMax-c.salMin;
+  return list.map((t,i)=>{
+    const min=Math.round((c.salMin+span*i*0.12)*2)/2;
+    const max=Math.max(min+1,Math.round((c.salMax-span*(list.length-1-i)*0.1)*2)/2);
+    const d=new Date(2026,10,30-i*4);
+    return {id:c.id+'-'+(i+1),cid:c.id,title:t,city:c.city,
+      mode:i===0?c.mode:MODES[(MODES.indexOf(c.mode)+i)%3],
+      type:i%3===2?'Paruh waktu':'Penuh waktu',min,max,days:i*3+1,
+      deadline:d.getDate()+' '+BULAN[d.getMonth()]+' '+d.getFullYear(),
+      dis:c.dis.slice(0,Math.max(1,c.dis.length-(i%2))),acc:c.acc.map(a=>a[0])};
+  });
+});
+const rp=n=>String(n).replace('.',',');
+</script>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  /* ---------- Data lamaran (contoh + lamaran asli dari localStorage) ---------- */
+  const STAGES = ['Terkirim','Dilihat','Wawancara','Penawaran'];
+  const HARI = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+  const pad = n => String(n).padStart(2,'0');
+  const fDate = d => `${HARI[d.getDay()]}, ${d.getDate()} ${BULAN[d.getMonth()].slice(0,3)} ${d.getFullYear()}`;
+  const fTime = d => `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  const fShort = d => `${d.getDate()} ${BULAN[d.getMonth()].slice(0,3)} ${d.getFullYear()}`;
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const DOCS0 = [['CV_User_2026.pdf','124 KB'],['KTP.jpg','86 KB'],['Sertifikat_UIUX.pdf','212 KB']];
+  const SEED = [
+    { id:'a1', job:'teknologi-wicara-4',  sent:'2026-11-03T14:20', stage:3, interview:'2026-11-10T10:00', no:'ACJ-2026-0842', acc:['Interview via chat','Waktu tambahan'], approved:true,
+      iv:{ platform:'Google Meet', link:'https://meet.google.com/abc-defg-hij', who:'Rina Kusuma', role:'HR Recruiter', dur:45 } },
+    { id:'a2', job:'pelita-kreatif-1',    sent:'2026-11-04T10:05', stage:2, no:'ACJ-2026-0851', acc:[], approved:false },
+    { id:'a3', job:'aksara-media-1',      sent:'2026-11-05T09:12', stage:2, no:'ACJ-2026-0866', acc:[], approved:false },
+    { id:'a4', job:'visiona-finansial-1', sent:'2026-11-06T16:40', stage:1, no:'ACJ-2026-0879', acc:[], approved:false },
+    { id:'a5', job:'kelor-negeri-1',      sent:'2026-11-06T18:02', stage:1, no:'ACJ-2026-0884', acc:[], approved:false }
+  ].map(a => ({ ...a, docs: DOCS0 }));
+  let stored = [];
+  try { stored = JSON.parse(localStorage.getItem('aequalis_applications') || '[]'); } catch {}
+  const real = stored.map((a, i) => ({ id:'r'+i, job:a.job, sent:a.date, stage:1, no:'ACJ-2026-'+(1000+i*37),
+      acc: a.akomodasi ? [a.akomodasi] : [], approved:false, docs:Object.values(a.dokumen || {}).map(n => [n, '']) }))
+    .filter(a => JOBS.some(j => j.id === a.job));
+  const APPS = [...SEED, ...real].sort((a, b) => b.stage - a.stage || new Date(b.sent) - new Date(a.sent));
+  const jobOf = a => JOBS.find(j => j.id === a.job);
+  const coOf = a => COMPANIES.find(c => c.id === jobOf(a).cid);
+  const bar = n => `<span class="seg">${[1,2,3,4].map(i => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}</span>`;
+
+
+  const id = new URLSearchParams(location.search).get('app');
+  const a = APPS.find(x => x.id === id && x.interview) || APPS.find(x => x.interview);
+  if (!a) {
+    $('view').innerHTML = '<div class="card empty">Belum ada jadwal wawancara. Kami akan memberi tahu kamu begitu perusahaan menjadwalkannya.<br><br><a class="cta" style="display:inline-block" href="lamaran-saya.html">Kembali ke Lamaran Saya</a></div>';
+    return;
+  }
+  const j = jobOf(a), c = coOf(a), iv = a.iv, start = new Date(a.interview), end = new Date(start.getTime() + iv.dur * 60000);
+  document.title = 'Aequalis – Wawancara ' + j.title;
+  $('back').href = 'detail-progres-lamaran.html?app=' + encodeURIComponent(a.id);
+
+  const dot = d => `${pad(d.getHours())}.${pad(d.getMinutes())}`;
+  const ACC_DESC = {
+    'Interview via chat':'Kamu boleh menjawab lewat kolom chat kapan saja selama sesi.',
+    'Waktu tambahan':'Durasi wawancara ditambah 15 menit dari jadwal normal.',
+    'Juru bahasa isyarat':'Juru bahasa isyarat akan hadir di ruang rapat.'
+  };
+  const CHK_KEY = 'aequalis_checklist_' + a.id;
+  const CHK = ['Cek koneksi internet & kamera 10 menit sebelum mulai','Siapkan portofolio (PDF atau link Behance/Dribbble)','Siapkan 2–3 pertanyaan untuk pewawancara'];
+  let done = [true, true, false];
+  try { const s = JSON.parse(localStorage.getItem(CHK_KEY)); if (Array.isArray(s) && s.length === CHK.length) done = s; } catch {}
+  const shown = iv.link.replace(/^https?:\/\//, '');
+
+  $('view').innerHTML = `
+  <div class="layout">
+    <section class="card main" aria-label="Rincian wawancara">
+      <div class="top">
+        <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></span>
+        <div class="t"><h2>${esc(j.title)}</h2><p>${esc(c.name)} · ${esc(j.city)} · ${esc(j.mode)}</p></div>
+        <span class="pill" id="status">● Terjadwal</span>
+      </div>
+      <div class="info">
+        <div><span class="i" aria-hidden="true">🗓</span><span><small>Tanggal</small><b>${HARI[start.getDay()]}, ${start.getDate()} ${BULAN[start.getMonth()]} ${start.getFullYear()}</b></span></div>
+        <div><span class="i" aria-hidden="true">🕒</span><span><small>Waktu</small><b>${dot(start)} – ${dot(end)} WIB</b></span></div>
+        <div><span class="i" aria-hidden="true">🎥</span><span><small>Metode</small><b>Video call · ${esc(iv.platform)}</b></span></div>
+        <div><span class="i" aria-hidden="true">👤</span><span><small>Pewawancara</small><b>${esc(iv.who)} · ${esc(iv.role)}</b></span></div>
+      </div>
+      <div class="link"><span aria-hidden="true">🔗</span><span id="link-txt">${esc(shown)}</span><button type="button" id="copy">Salin link</button></div>
+
+      ${a.acc.length ? `<h3>Akomodasi yang disiapkan</h3>
+      <ul class="acc">${a.acc.map(t => `<li><span class="i" aria-hidden="true">✓</span><div><b>${esc(t)}</b><span>${esc(ACC_DESC[t] || 'Disiapkan oleh perusahaan.')}</span></div></li>`).join('')}</ul>` : ''}
+
+      <div class="chk-h"><h3>Checklist persiapan</h3><small id="chk-n" aria-live="polite"></small></div>
+      <ul class="chk">${CHK.map((t, i) => `<li><label><input type="checkbox" data-i="${i}" ${done[i] ? 'checked' : ''}><span>${esc(t)}</span></label></li>`).join('')}</ul>
+    </section>
+
+    <aside class="card side" aria-label="Hitung mundur wawancara">
+      <span class="pill">Wawancara terdekat</span>
+      <div class="dt">
+        <div class="d" aria-hidden="true"><b>${start.getDate()}</b><small>${BULAN[start.getMonth()].slice(0,3).toUpperCase()}</small></div>
+        <div><b>${HARI[start.getDay()]}, ${dot(start)} WIB</b><span>Video call · ${iv.dur} menit</span></div>
+      </div>
+      <div class="count" role="timer" aria-label="Waktu menuju wawancara">
+        <div><b id="c-d">0</b><small>hari</small></div><div><b id="c-h">0</b><small>jam</small></div><div><b id="c-m">0</b><small>menit</small></div>
+      </div>
+      <a class="cta" id="join" href="${esc(iv.link)}" target="_blank" rel="noopener noreferrer">Gabung wawancara →</a>
+      <p class="hint">Dibuka di tab baru lewat ${esc(iv.platform)}.</p>
+      <a class="ghost" href="beranda.html">← Kembali ke Beranda</a>
+    </aside>
+  </div>`;
+
+  /* Checklist */
+  const upd = () => { $('chk-n').textContent = done.filter(Boolean).length + ' dari ' + CHK.length + ' selesai'; };
+  upd();
+  document.querySelectorAll('.chk input').forEach(cb => cb.addEventListener('change', () => {
+    done[+cb.dataset.i] = cb.checked; upd();
+    try { localStorage.setItem(CHK_KEY, JSON.stringify(done)); } catch {}
+  }));
+
+  /* Hitung mundur */
+  function tick() {
+    const now = Date.now(), diff = start - now;
+    const st = $('status');
+    if (now > end) { st.textContent = 'Selesai'; st.className = 'pill'; }
+    else if (now >= start) { st.textContent = '● Sedang berlangsung'; st.className = 'pill live'; }
+    const m = Math.max(0, Math.floor(diff / 60000));
+    $('c-d').textContent = Math.floor(m / 1440);
+    $('c-h').textContent = Math.floor((m % 1440) / 60);
+    $('c-m').textContent = m % 60;
+  }
+  tick(); setInterval(tick, 30000);
+
+  /* Salin link */
+  const toast = msg => { const t = $('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); };
+  $('copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(iv.link); toast('Link wawancara disalin.'); }
+    catch {
+      const r = document.createRange(); r.selectNodeContents($('link-txt'));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      toast('Tekan Ctrl+C untuk menyalin link.');
+    }
+  });
+})();
+</script>
+</body>
+</html>

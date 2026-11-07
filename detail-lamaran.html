@@ -50,7 +50,7 @@
           <a href="perusahaan.html" class="on" aria-current="page"
             >Perusahaan</a
           >
-          <a href="#">Lamaran Saya</a>
+          <a href="lamaran-saya.html">Lamaran Saya</a>
         </nav>
         <div class="user">
           <button
@@ -75,30 +75,8 @@
 
     <main class="wrap" id="main"></main>
 
-    <dialog id="dlg" aria-labelledby="dlg-t">
-      <form id="apply-form" novalidate>
-        <h2 id="dlg-t">Ajukan Lamaran</h2>
-        <p class="sub" id="dlg-sub"></p>
-        <label for="a-nama">Nama lengkap</label>
-        <input id="a-nama" type="text" autocomplete="name" />
-        <div class="err" id="e-nama"></div>
-        <label for="a-email">Email</label>
-        <input id="a-email" type="email" autocomplete="email" />
-        <div class="err" id="e-email"></div>
-        <label for="a-cv">CV (opsional)</label>
-        <input id="a-cv" type="file" accept=".pdf,.doc,.docx" />
-        <label for="a-akom">Kebutuhan akomodasi (opsional)</label>
-        <textarea
-          id="a-akom"
-          placeholder="Mis. juru bahasa isyarat saat wawancara"
-        ></textarea>
-        <div class="row">
-          <button type="button" class="ghost" id="a-cancel">Batal</button>
-          <button type="submit" class="cta">Kirim Lamaran</button>
-        </div>
-      </form>
-    </dialog>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div> 
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
     <script src="detail-lamaran.js" defer></script>
   </body>
 </html>
