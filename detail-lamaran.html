@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aequalis – Detail Lamaran</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="detail-lamaran.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="wrap">
+        <span>Aksesibilitas</span>
+        <div class="size" role="group" aria-label="Ukuran teks">
+          <span>Ukuran Teks</span>
+          <button type="button" data-size="-1" aria-label="Perkecil teks">
+            −
+          </button>
+          <button type="button" data-size="1" aria-label="Perbesar teks">
+            +
+          </button>
+        </div>
+        <button type="button" id="t-contrast" aria-pressed="false">
+          Kontras Tinggi
+        </button>
+        <button type="button" id="t-dys" aria-pressed="false">
+          Font disleksia
+        </button>
+      </div>
+    </div>
+
+    <header class="nav">
+      <div class="wrap">
+        <a class="logo" href="beranda.html">
+          <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+            <circle cx="16" cy="16" r="15" fill="#4a67c0" />
+            <path
+              d="M9 21c4-1 6-4 7-9 1 5 3 8 7 9-5 0-7 2-7 4 0-2-2-4-7-4z"
+              fill="#fff"
+            /></svg
+          >aequalis</a
+        >
+        <nav class="menu" aria-label="Menu utama">
+          <a href="lowongan.html">Cari Lowongan</a>
+          <a href="perusahaan.html" class="on" aria-current="page"
+            >Perusahaan</a
+          >
+          <a href="#">Lamaran Saya</a>
+        </nav>
+        <div class="user">
+          <button
+            type="button"
+            id="user-btn"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="avatar" id="avatar">U</span
+            ><span id="user-label">Halo, User</span> ▾
+          </button>
+          <div class="dropdown" id="dropdown">
+            <div class="who">
+              <b id="who-name">User</b><small>Pelamar</small>
+            </div>
+            <a href="#">Profil Saya</a
+            ><button type="button" class="out" id="logout">Sign Out</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap" id="main"></main>
+
+    <dialog id="dlg" aria-labelledby="dlg-t">
+      <form id="apply-form" novalidate>
+        <h2 id="dlg-t">Ajukan Lamaran</h2>
+        <p class="sub" id="dlg-sub"></p>
+        <label for="a-nama">Nama lengkap</label>
+        <input id="a-nama" type="text" autocomplete="name" />
+        <div class="err" id="e-nama"></div>
+        <label for="a-email">Email</label>
+        <input id="a-email" type="email" autocomplete="email" />
+        <div class="err" id="e-email"></div>
+        <label for="a-cv">CV (opsional)</label>
+        <input id="a-cv" type="file" accept=".pdf,.doc,.docx" />
+        <label for="a-akom">Kebutuhan akomodasi (opsional)</label>
+        <textarea
+          id="a-akom"
+          placeholder="Mis. juru bahasa isyarat saat wawancara"
+        ></textarea>
+        <div class="row">
+          <button type="button" class="ghost" id="a-cancel">Batal</button>
+          <button type="submit" class="cta">Kirim Lamaran</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div> 
+    <script src="detail-lamaran.js" defer></script>
+  </body>
+</html>

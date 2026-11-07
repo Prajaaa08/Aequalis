@@ -375,10 +375,31 @@
       apply();
     }),
   );
+  // Hubungkan nama perusahaan dengan ID di profil-perusahaan.js
+  const companyIds = {
+    "Nusantara Digital": "nusantara-digital",
+    "Visiona Finansial": "visiona-finansial",
+    "Kelor Negeri": "kelor-negeri",
+    "Pelita Kreatif": "pelita-kreatif",
+    "Sentra Logistik": "sentra-logistik",
+    "Teknologi Wicara": "teknologi-wicara",
+    "Aksara Media": "aksara-media",
+    "Bumi Retail": "bumi-retail",
+    "Cakra Konsultan": "cakra-konsultan",
+  };
+
   $("list").addEventListener("click", (e) => {
     const b = e.target.closest(".go");
-    // TODO: arahkan ke halaman profil perusahaan, mis. perusahaan.html?nama=...
-    if (b) console.log("Profil perusahaan:", b.dataset.co);
+    if (!b) return;
+
+    const companyId = companyIds[b.dataset.co];
+
+    if (!companyId) {
+      alert("Profil perusahaan tidak ditemukan.");
+      return;
+    }
+
+    window.location.href = `profil-perusahaan.html?id=${encodeURIComponent(companyId)}`;
   });
 
   /* ---------- Terima kata kunci dari beranda (?q=...&lokasi=...) ---------- */
