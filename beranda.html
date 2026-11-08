@@ -11,6 +11,115 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="beranda.css" />
+    <style id="logout-style">
+      .dropdown {
+        min-width: 200px;
+      }
+      .dropdown .who {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 8px 10px;
+        margin-bottom: 4px;
+        border-bottom: 0;
+      }
+      .dropdown .who .avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+        flex: none;
+      }
+      .dropdown .who b {
+        font-size: 0.8rem;
+      }
+      .dropdown .who small {
+        display: block;
+        color: var(--muted);
+        font-size: 0.68rem;
+      }
+      .dropdown a,
+      .dropdown button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .dropdown hr {
+        border: 0;
+        border-top: 1px solid var(--line);
+        margin: 4px 6px;
+      }
+      #dlg-logout {
+        border: 0;
+        border-radius: 16px;
+        padding: 26px 24px 20px;
+        width: min(360px, 92vw);
+        box-shadow: 0 20px 60px rgba(22, 37, 90, 0.35);
+        color: var(--ink);
+        background: var(--card);
+        margin: auto;
+        text-align: center;
+        font-family: var(--font);
+      }
+      #dlg-logout::backdrop {
+        background: rgba(22, 37, 90, 0.5);
+      }
+      #dlg-logout .x {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        background: none;
+        border: 0;
+        font-size: 1rem;
+        cursor: pointer;
+        color: var(--muted);
+      }
+      #dlg-logout .big {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        margin: 0 auto 12px;
+        display: grid;
+        place-items: center;
+        background: #fde8e8;
+        color: #c0262d;
+      }
+      #dlg-logout h2 {
+        font-size: 1rem;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+      #dlg-logout p {
+        font-size: 0.74rem;
+        color: var(--muted);
+      }
+      #dlg-logout .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      #dlg-logout .row button {
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      #dlg-logout .cancel {
+        background: #fff;
+        border: 1.5px solid var(--navy);
+        color: var(--navy);
+      }
+      #dlg-logout .confirm {
+        background: #c0262d;
+        border: 1.5px solid #c0262d;
+        color: #fff;
+      }
+      #dlg-logout .confirm:hover {
+        filter: brightness(1.1);
+      }
+    </style>
   </head>
   <body>
     <!-- Bar aksesibilitas -->
@@ -65,10 +174,55 @@
           </button>
           <div class="dropdown" id="dropdown">
             <div class="who">
-              <b id="who-name">User</b><small>Pelamar</small>
+              <span class="avatar">U</span>
+              <div><b id="who-name">User</b><small>Pencari kerja</small></div>
             </div>
-            <a href="#">Profil Saya</a>
-            <button type="button" class="out" id="logout">Sign Out</button>
+            <a href="profil.html"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c1-4 4-6 8-6s7 2 8 6" /></svg
+              >Profil Saya</a
+            >
+            <a href="setting.html"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path
+                  d="M19.400 15a1.700 1.700 0 0 0 .3 1.800l.1.1a2 2 0 1 1-2.800 2.800l-.1-.1a1.700 1.700 0 0 0-1.800-.3 1.700 1.700 0 0 0-1 1.500V21a2 2 0 1 1-4 0v-.1a1.700 1.700 0 0 0-1.100-1.500 1.700 1.700 0 0 0-1.800.3l-.1.1a2 2 0 1 1-2.800-2.800l.1-.1a1.700 1.700 0 0 0 .3-1.800 1.700 1.700 0 0 0-1.500-1H3a2 2 0 1 1 0-4h.1a1.700 1.700 0 0 0 1.500-1.100 1.700 1.700 0 0 0-.3-1.800l-.1-.1a2 2 0 1 1 2.800-2.800l.1.1a1.700 1.700 0 0 0 1.800.3H9a1.700 1.700 0 0 0 1-1.500V3a2 2 0 1 1 4 0v.1a1.700 1.700 0 0 0 1 1.500 1.700 1.700 0 0 0 1.800-.3l.1-.1a2 2 0 1 1 2.800 2.800l-.1.1a1.700 1.700 0 0 0-.3 1.800V9a1.700 1.700 0 0 0 1.500 1H21a2 2 0 1 1 0 4h-.1a1.700 1.700 0 0 0-1.500 1z"
+                /></svg
+              >Setting</a
+            >
+            <hr />
+            <button type="button" class="out" id="logout">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <path
+                  d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
+                /></svg
+              >Sign Out
+            </button>
           </div>
         </div>
       </div>
@@ -304,7 +458,7 @@
             <div class="links">
               <a href="lowongan.html">Cari lowongan <span>→</span></a>
               <a href="perusahaan.html">Perusahaan <span>→</span></a>
-              <a href="lamaran-saya.html">Lamaran saya <span>→</span></a>
+              <a href="#">Lamaran saya <span>→</span></a>
             </div>
             <h3 class="sp">Pencarian populer</h3>
             <div class="chips">
@@ -361,6 +515,31 @@
       </div>
     </footer>
 
-    <script src="beranda.js" defer></script>
+    <dialog id="dlg-logout" aria-labelledby="t-logout">
+      <button type="button" class="x" data-close aria-label="Tutup">✕</button>
+      <div class="big" aria-hidden="true">
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
+          />
+        </svg>
+      </div>
+      <h2 id="t-logout">Keluar dari akun?</h2>
+      <p>Kamu perlu login lagi untuk melihat lamaran dan jadwal wawancaramu.</p>
+      <div class="row">
+        <button type="button" class="cancel" data-close>Batal</button
+        ><button type="button" class="confirm" id="ok-logout">
+          Ya, keluar
+        </button>
+      </div>
+    </dialog>
+    <script src="beranda.js"></script>
   </body>
 </html>

@@ -25,7 +25,9 @@
   const name = store.get("aequalis_user") || "User";
   $("user-label").textContent = "Halo, " + name;
   $("who-name").textContent = name;
-  $("avatar").textContent = name.charAt(0).toUpperCase();
+  document
+    .querySelectorAll(".avatar")
+    .forEach((e) => (e.textContent = name.charAt(0).toUpperCase()));
 
   const btn = $("user-btn"),
     dd = $("dropdown");
@@ -41,9 +43,21 @@
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") dd.classList.remove("open");
   });
+  const dlgOut = $("dlg-logout");
   $("logout").addEventListener("click", () => {
+    dd.classList.remove("open");
+    btn.setAttribute("aria-expanded", false);
+    dlgOut.showModal();
+  });
+  dlgOut.addEventListener("click", (e) => {
+    if (e.target === dlgOut) dlgOut.close();
+  });
+  dlgOut
+    .querySelectorAll("[data-close]")
+    .forEach((b) => b.addEventListener("click", () => dlgOut.close()));
+  $("ok-logout").addEventListener("click", () => {
     store.del("aequalis_user");
-    location.href = "aequalis-auth.html";
+    location.href = "login.html";
   });
 
   /* ---------- Aksesibilitas ---------- */
